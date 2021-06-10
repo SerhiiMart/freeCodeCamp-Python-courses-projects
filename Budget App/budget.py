@@ -10,7 +10,6 @@ class Category:
       total = 0
       for item in self.ledger:
           items += f"{item['description'][0:23]:23}" + f"{item['amount']:>7.2f}" + '\n'
-          
           total += item['amount']
 
       output = nameT + items + "Total: " + str(total)
@@ -19,20 +18,17 @@ class Category:
   def deposit(self, amount, description=""):
       self.ledger.append({"amount": amount, "description": description})
 
-
   def withdraw(self, amount, description=""):
       if(self.check_funds(amount)):
         self.ledger.append({"amount": -amount, "description": description})
         return True
       return False
 
-
   def get_balance(self):
       total_cash = 0
       for item in self.ledger:
         total_cash += item["amount"]
       return total_cash
-
 
   def transfer(self, amount, category):
       if(self.check_funds(amount)):
@@ -53,9 +49,6 @@ class Category:
           if item["amount"] < 0:
               total+= item["amount"]
       return total
-
-
-
 
 def truncate(n):
     multiplier = 10
@@ -102,7 +95,6 @@ def create_spend_chart(categories):
         
         if(x != len(maxvalue) -1 ):
           nameStr += "\n"
-
           
         x_axis += nameStr
 
