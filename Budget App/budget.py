@@ -17,12 +17,10 @@ class Category:
       return output
 
   def deposit(self, amount, description=""):
-    
       self.ledger.append({"amount": amount, "description": description})
 
 
   def withdraw(self, amount, description=""):
-
       if(self.check_funds(amount)):
         self.ledger.append({"amount": -amount, "description": description})
         return True
@@ -30,16 +28,13 @@ class Category:
 
 
   def get_balance(self):
-  
       total_cash = 0
       for item in self.ledger:
         total_cash += item["amount"]
-
       return total_cash
 
 
   def transfer(self, amount, category):
- 
       if(self.check_funds(amount)):
         self.withdraw(amount,"Transfer to " + category.name)
         category.deposit(amount, "Transfer from " + self.name)
@@ -48,7 +43,6 @@ class Category:
       
 
   def check_funds(self, amount):
-   
       if(self.get_balance() >= amount):
         return True
       return False
@@ -77,7 +71,6 @@ def getTotals(categories):
     return rounded
 
 def create_spend_chart(categories):
-
     result = "Percentage spent by category\n"
     i = 100
     totals = getTotals(categories)
@@ -100,7 +93,7 @@ def create_spend_chart(categories):
     maxvalue = max(names, key=len)
 
     for x in range(len(maxvalue)):
-        nameStr = '     '
+        nameStr = "     "
         for name in names:
               if x >= len(name):
                   nameStr += "   "
@@ -108,7 +101,7 @@ def create_spend_chart(categories):
                   nameStr += name[x] + "  "
         
         if(x != len(maxvalue) -1 ):
-          nameStr += '\n'
+          nameStr += "\n"
 
           
         x_axis += nameStr
