@@ -30,8 +30,6 @@ class Rectangle:
     def get_amount_inside(object, shape):
       return int(object.get_area() / shape.get_area())
 
-
-
 class Square:
     def __init__(object, side):
       object.width = side
