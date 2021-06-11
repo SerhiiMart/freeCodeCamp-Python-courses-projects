@@ -33,3 +33,13 @@ class Rectangle:
 
 
 class Square:
+    def __init__(object, side):
+      object.width = side
+      object.height = side
+
+    def __str__(object):
+      return f'Square(side={object.width})'
+
+    def set_side(object, side):
+      object.width = side
+      object.height = side
