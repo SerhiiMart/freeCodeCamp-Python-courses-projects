@@ -22,6 +22,16 @@ class Hat:
       return rand_balls
 
 
-
-
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
+  time_index = 0
+  for experiment in range(num_experiments):
+    hat_copy = copy.deepcopy(hat)
+    expected_balls_copy = copy.deepcopy(expected_balls)
+    result = hat_copy.draw(num_balls_drawn)
+    for ball in result:
+      if ball in expected_balls_copy:
+        expected_balls_copy[ball] -= 1
+    if all(value <= 0 for value in expected_balls_copy.values()):
+      time_index += 1
+  prob_calculator = time_index/num_experiments
+  return(prob_calculator)
