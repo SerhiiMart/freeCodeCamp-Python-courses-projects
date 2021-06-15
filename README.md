@@ -9,4 +9,8 @@ freeCodeCamp courses : "Scientific Computing with Python"
 
 ## Second : Time Calculator
 
-## Third : Arithmetic Formatter
+## Third : Budget App
+
+## Forth : Polygon Area Calculator
+
+## Fifth : Probability Calculator
