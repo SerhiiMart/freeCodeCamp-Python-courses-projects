@@ -19,9 +19,18 @@ def draw_plot():
     plt.plot(x_guess, y_guess, "r")
 
     # Create second line of best fit
-
+    latest_df = df.loc[df['Year'] >= 2000]
+    latest_x = latest_df['Year']
+    latest_y = latest_df["CSIRO Adjusted Sea Level"]
+    res_2 = linregress(latest_x, latest_y)
+    x_guess2 = pd.Series([i for i in range(2000, 2051)])
+    y_guess2 = res_2.slope*x_guess2 + res_2.intercept
+    plt.plot(x_guess2, y_guess2, 'green')
 
     # Add labels and title
+    plt.xlabel('Year')
+    plt.ylabel('Sea Level (inches)')
+    plt.title("Rise in Sea Level")
 
     
     # Save plot and return data for testing (DO NOT MODIFY)
