@@ -13,7 +13,10 @@ def draw_plot():
     plt.scatter(x, y)
 
     # Create first line of best fit
-
+    res = linregress(x, y)
+    x_guess = pd.Series([i for i in range(1880, 2051)])
+    y_guess = res.slope*x_guess + res.intercept
+    plt.plot(x_guess, y_guess, "r")
 
     # Create second line of best fit
 
